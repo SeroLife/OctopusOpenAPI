@@ -1,0 +1,456 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Octopus Energy",
+    "description": "This is Rocketmakers implementation of the Octopus Energy API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "admin@rocketmakers.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.octopus.energy/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Energy Products",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of energy products.",
+        "description": "By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "is_variable",
+            "description": "Show only variable products.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "is_green",
+            "description": "Show only green products.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "is_prepay",
+            "description": "Show only tracker products.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "is_business",
+            "description": "Show only business products.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "available_at",
+            "description": "Show products available for new agreements on the given datetime. Defaults to current datetime, effectively showing products that are currently available.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Retrieve the details of a product (including all its tariffs) for a particular point in time.",
+        "description": "Retrieve the details of a product (including all its tariffs) for a particular point in time.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "product_code",
+            "description": "The code of the product to be retrieved, for example VAR-17-01-11",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "tariffs_active_at",
+            "description": "The point in time in which to show the active charges. Defaults to current datetime.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWithTariffsObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Products": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Results in Response"
+          },
+          "next": {
+            "type": "string",
+            "description": "Paginated URL for next records"
+          },
+          "previous": {
+            "type": "string",
+            "description": "Paginated URL for previous records"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductObject"
+            }
+          }
+        },
+        "required": [
+          "results",
+          "count",
+          "previous",
+          "next"
+        ]
+      },
+      "ProductObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Product Code",
+            "example": "VAR-17-01-11"
+          },
+          "full_name": {
+            "type": "string",
+            "description": "Full name of product",
+            "example": "Flexible Octopus January 2017 v1"
+          },
+          "display_name": {
+            "type": "string",
+            "description": "Display name of product",
+            "example": "Flexible Octopus"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of product",
+            "example": "This great value 12 month fixed tariff guarantees…"
+          },
+          "is_variable": {
+            "type": "boolean",
+            "description": "Is the product Variable",
+            "example": false
+          },
+          "is_green": {
+            "type": "boolean",
+            "description": "Is the product Green",
+            "example": false
+          },
+          "is_tracker": {
+            "type": "boolean",
+            "description": "Is the product Tracker",
+            "example": false
+          },
+          "is_prepay": {
+            "type": "boolean",
+            "description": "Is the product Prepay",
+            "example": false
+          },
+          "is_business": {
+            "type": "boolean",
+            "description": "Is the product is for Businesses",
+            "example": false
+          },
+          "is_restricted": {
+            "type": "boolean",
+            "description": "Is the product Restricted",
+            "example": false
+          },
+          "term": {
+            "type": "integer",
+            "description": "Is the number of months that a product lasts for if it is fixed length",
+            "example": 12
+          },
+          "brand": {
+            "type": "string",
+            "description": "Brand Name",
+            "example": "OCTOPUS_ENERGY"
+          },
+          "available_from": {
+            "type": "string",
+            "description": "Product available from",
+            "example": "2017-05-05T05:37:27Z"
+          },
+          "available_to": {
+            "type": "string",
+            "description": "Product available to",
+            "example": null
+          },
+          "links": {
+            "type": "array",
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/ProductLinks"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "full_name",
+          "display_name",
+          "description",
+          "is_variable",
+          "is_green",
+          "is_tracker",
+          "is_prepay",
+          "is_business",
+          "is_restricted",
+          "term",
+          "brand",
+          "available_from",
+          "available_to",
+          "links"
+        ]
+      },
+      "ProductWithTariffsObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Product Code",
+            "example": "VAR-17-01-11"
+          },
+          "full_name": {
+            "type": "string",
+            "description": "Full name of product",
+            "example": "Flexible Octopus January 2017 v1"
+          },
+          "display_name": {
+            "type": "string",
+            "description": "Display name of product",
+            "example": "Flexible Octopus"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of product",
+            "example": "This great value 12 month fixed tariff guarantees…"
+          },
+          "is_variable": {
+            "type": "boolean",
+            "description": "Is the product Variable",
+            "example": false
+          },
+          "is_green": {
+            "type": "boolean",
+            "description": "Is the product Green",
+            "example": false
+          },
+          "is_tracker": {
+            "type": "boolean",
+            "description": "Is the product Tracker",
+            "example": false
+          },
+          "is_prepay": {
+            "type": "boolean",
+            "description": "Is the product Prepay",
+            "example": false
+          },
+          "is_business": {
+            "type": "boolean",
+            "description": "Is the product is for Businesses",
+            "example": false
+          },
+          "is_restricted": {
+            "type": "boolean",
+            "description": "Is the product Restricted",
+            "example": false
+          },
+          "term": {
+            "type": "integer",
+            "description": "Is the number of months that a product lasts for if it is fixed length",
+            "example": 12
+          },
+          "brand": {
+            "type": "string",
+            "description": "Brand Name",
+            "example": "OCTOPUS_ENERGY"
+          },
+          "available_from": {
+            "type": "string",
+            "description": "Product available from",
+            "example": "2017-05-05T05:37:27Z"
+          },
+          "available_to": {
+            "type": "string",
+            "description": "Product available to",
+            "example": null
+          },
+          "tariffs_active_at": {
+            "type": "string",
+            "description": "Tariff available at",
+            "example": ""
+          },
+          "sample_consumption": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleConsumption"
+          },
+          "links": {
+            "type": "array",
+            "description": "",
+            "items": {
+              "$ref": "#/components/schemas/ProductLinks"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "full_name",
+          "display_name",
+          "description",
+          "is_variable",
+          "is_green",
+          "is_tracker",
+          "is_prepay",
+          "is_business",
+          "is_restricted",
+          "term",
+          "brand",
+          "available_from",
+          "available_to",
+          "sample_consumption",
+          "links"
+        ]
+      },
+      "ProductLinks": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "Link to single product"
+          },
+          "method": {
+            "type": "string",
+            "description": "HTTP Method"
+          },
+          "rel": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "required": [
+          "href",
+          "method",
+          "rel"
+        ]
+      },
+      "SampleConsumption": {
+        "type": "object",
+        "properties": {
+          "electricity_single_rate": {
+            "type": "object",
+            "properties": {
+              "electricity_standard": {
+                "type": "integer"
+              }
+            }
+          },
+          "electricity_dual_rate": {
+            "type": "object",
+            "properties": {
+              "electricity_day": {
+                "type": "integer"
+              },
+              "electricity_night": {
+                "type": "integer"
+              }
+            }
+          },
+          "dual_fuel_single_rate": {
+            "type": "object",
+            "properties": {
+              "electricity_standard": {
+                "type": "integer"
+              },
+              "gas_standard": {
+                "type": "integer"
+              }
+            }
+          },
+          "dual_fuel_dual_rate": {
+            "type": "object",
+            "properties": {
+              "electricity_day": {
+                "type": "integer"
+              },
+              "electricity_night": {
+                "type": "integer"
+              },
+              "gas_standard": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "required": [
+          "electricity_single_rate",
+          "electricity_dual_rate",
+          "dual_fuel_single_rate",
+          "dual_fuel_dual_rate"
+        ]
+      }
+    }
+  }
+}

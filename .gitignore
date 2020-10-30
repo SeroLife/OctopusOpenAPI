@@ -1,0 +1,5 @@
+node_modules
+tmp/
+openapitools.json
+.nyc_output
+lib/
