@@ -6,7 +6,8 @@
     "ts-run": "ts-node -P ./tsconfig.json",
     "generate": "./node_modules/ts-node/dist/bin.js -P ./tsconfig.json -- src/index.ts",
     "test-api-client": "nyc ava _tests/api/*.test.ts --verbose --concurrency=8 --timeout=2m",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "postinstall": "(cd package && npm i)"
   },
   "author": "Rocketmakers",
   "license": "ISC",
