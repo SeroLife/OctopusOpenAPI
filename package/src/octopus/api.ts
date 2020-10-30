@@ -144,6 +144,115 @@ export interface ProductObject {
 /**
  * 
  * @export
+ * @interface ProductWithTariffsObject
+ */
+export interface ProductWithTariffsObject {
+    /**
+     * Product Code
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    code: string;
+    /**
+     * Full name of product
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    full_name: string;
+    /**
+     * Display name of product
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    display_name: string;
+    /**
+     * Description of product
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    description: string;
+    /**
+     * Is the product Variable
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_variable: boolean;
+    /**
+     * Is the product Green
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_green: boolean;
+    /**
+     * Is the product Tracker
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_tracker: boolean;
+    /**
+     * Is the product Prepay
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_prepay: boolean;
+    /**
+     * Is the product is for Businesses
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_business: boolean;
+    /**
+     * Is the product Restricted
+     * @type {boolean}
+     * @memberof ProductWithTariffsObject
+     */
+    is_restricted: boolean;
+    /**
+     * Is the number of months that a product lasts for if it is fixed length
+     * @type {number}
+     * @memberof ProductWithTariffsObject
+     */
+    term: number;
+    /**
+     * Brand Name
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    brand: string;
+    /**
+     * Product available from
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    available_from: string;
+    /**
+     * Product available to
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    available_to: string;
+    /**
+     * Tariff available at
+     * @type {string}
+     * @memberof ProductWithTariffsObject
+     */
+    tariffs_active_at?: string;
+    /**
+     * 
+     * @type {SampleConsumption}
+     * @memberof ProductWithTariffsObject
+     */
+    sample_consumption: SampleConsumption;
+    /**
+     * 
+     * @type {Array<ProductLinks>}
+     * @memberof ProductWithTariffsObject
+     */
+    links: Array<ProductLinks>;
+}
+/**
+ * 
+ * @export
  * @interface Products
  */
 export interface Products {
@@ -171,6 +280,113 @@ export interface Products {
      * @memberof Products
      */
     results: Array<ProductObject>;
+}
+/**
+ * 
+ * @export
+ * @interface SampleConsumption
+ */
+export interface SampleConsumption {
+    /**
+     * 
+     * @type {SampleConsumptionElectricitySingleRate}
+     * @memberof SampleConsumption
+     */
+    electricity_single_rate: SampleConsumptionElectricitySingleRate;
+    /**
+     * 
+     * @type {SampleConsumptionElectricityDualRate}
+     * @memberof SampleConsumption
+     */
+    electricity_dual_rate: SampleConsumptionElectricityDualRate;
+    /**
+     * 
+     * @type {SampleConsumptionDualFuelSingleRate}
+     * @memberof SampleConsumption
+     */
+    dual_fuel_single_rate: SampleConsumptionDualFuelSingleRate;
+    /**
+     * 
+     * @type {SampleConsumptionDualFuelDualRate}
+     * @memberof SampleConsumption
+     */
+    dual_fuel_dual_rate: SampleConsumptionDualFuelDualRate;
+}
+/**
+ * 
+ * @export
+ * @interface SampleConsumptionDualFuelDualRate
+ */
+export interface SampleConsumptionDualFuelDualRate {
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionDualFuelDualRate
+     */
+    electricity_day?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionDualFuelDualRate
+     */
+    electricity_night?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionDualFuelDualRate
+     */
+    gas_standard?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SampleConsumptionDualFuelSingleRate
+ */
+export interface SampleConsumptionDualFuelSingleRate {
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionDualFuelSingleRate
+     */
+    electricity_standard?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionDualFuelSingleRate
+     */
+    gas_standard?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SampleConsumptionElectricityDualRate
+ */
+export interface SampleConsumptionElectricityDualRate {
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionElectricityDualRate
+     */
+    electricity_day?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionElectricityDualRate
+     */
+    electricity_night?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SampleConsumptionElectricitySingleRate
+ */
+export interface SampleConsumptionElectricitySingleRate {
+    /**
+     * 
+     * @type {number}
+     * @memberof SampleConsumptionElectricitySingleRate
+     */
+    electricity_standard?: number;
 }
 
 /**
@@ -225,7 +441,48 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductCodeGet: async (productCode: string, tariffsActiveAt?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeGet.');
+            }
+            const localVarPath = `/products/{product_code}`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (tariffsActiveAt !== undefined) {
+                localVarQueryParameter['tariffs_active_at'] = tariffsActiveAt;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -261,6 +518,21 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductWithTariffsObject>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeGet(productCode, tariffsActiveAt, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -283,6 +555,17 @@ export const EnergyProductsApiFactory = function (configuration?: Configuration,
          */
         productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products> {
             return EnergyProductsApiFp(configuration).productsGet(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject> {
+            return EnergyProductsApiFp(configuration).productsProductCodeGet(productCode, tariffsActiveAt, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -307,6 +590,17 @@ export interface EnergyProductsApiInterface {
      */
     productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products>;
 
+    /**
+     * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject>;
+
 }
 
 /**
@@ -330,6 +624,19 @@ export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInter
      */
     public productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any) {
         return EnergyProductsApiFp(this.configuration).productsGet(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApi
+     */
+    public productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any) {
+        return EnergyProductsApiFp(this.configuration).productsProductCodeGet(productCode, tariffsActiveAt, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

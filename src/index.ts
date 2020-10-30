@@ -41,14 +41,7 @@ import { copyFilesAsync, getFileExtension, removeDirectoryAsync } from './helper
       '--additional-properties',
       'supportsES6=true',
       '--additional-properties',
-      'modelPropertyNaming=original',
-      '--additional-properties',
       'withInterfaces=true',
-      '--additional-properties',
-      'prependFormOrBodyParameters',
-      '--additional-properties',
-      'nullSafeAdditionalProps',
-      '--skip-validate-spec',
       '--input-spec',
       swaggerPath,
       '--output',
@@ -65,6 +58,12 @@ import { copyFilesAsync, getFileExtension, removeDirectoryAsync } from './helper
     for (const file of files) {
       await FileSystem.unlinkAsync(file.path);
     }
+
+    // Fix for the Api Generator creating deletes
+    const apiFile = await FileSystem.readFileAsync(`${outputPath}/api.ts`, { encoding: 'utf8' });
+    const apiFileContent = apiFile.toString();
+    const newApiFileContent = apiFileContent.replace(/(delete localVarUrlObj.search;)/g, 'localVarUrlObj.search = null;');
+    await FileSystem.writeFileAsync(`${outputPath}/api.ts`, newApiFileContent);
 
     await FileSystem.unlinkAsync(resolve(tmpOutputPath, '.openapi-generator', 'VERSION'));
     await removeDirectoryAsync(resolve(tmpOutputPath, '.openapi-generator'));
