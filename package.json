@@ -1,13 +1,16 @@
 {
   "name": "@sero-digital/octopus-api-client",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "scripts": {
+    "postinstall": "(cd package && npm i)",
     "ts-run": "ts-node -P ./tsconfig.json",
     "generate": "./node_modules/ts-node/dist/bin.js -P ./tsconfig.json -- src/index.ts",
+    "build-package": "(cd package && npm run build)",
+    "start": "npm run generate && npm run build-package",
     "test-api-client": "nyc ava _tests/api/*.test.ts --verbose --concurrency=8 --timeout=2m",
-    "commit": "git-cz",
-    "postinstall": "(cd package && npm i)"
+    "generate-changelog": "standard-version",
+    "commit": "git-cz"
   },
   "author": "Rocketmakers",
   "license": "ISC",
@@ -16,6 +19,7 @@
     "@types/node": "^14.11.2",
     "ava": "^3.13.0",
     "nyc": "^15.1.0",
+    "standard-version": "^9.0.0",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.3"
   },
