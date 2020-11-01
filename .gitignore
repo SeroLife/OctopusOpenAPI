@@ -3,3 +3,4 @@ tmp/
 openapitools.json
 .nyc_output
 lib/
+.env

@@ -1,6 +1,6 @@
 {
   "name": "@sero-digital/octopus-api-client",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "postinstall": "(cd package && npm i)",
@@ -18,8 +18,8 @@
     "@rocketmakers/shell-commands": "^1.2.0",
     "@types/node": "^14.11.2",
     "ava": "^3.13.0",
+    "dotenv": "^8.2.0",
     "nyc": "^15.1.0",
-    "standard-version": "^9.0.0",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.3"
   },
@@ -36,7 +36,16 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-conventional-changelog",
+      "disableScopeLowerCase": false,
+      "disableSubjectLowerCase": false,
+      "maxHeaderWidth": 100,
+      "maxLineWidth": 100,
+      "defaultType": "",
+      "defaultScope": "",
+      "defaultSubject": "",
+      "defaultBody": "",
+      "defaultIssues": ""
     }
   }
 }

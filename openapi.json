@@ -22,6 +22,18 @@
     {
       "name": "Energy Products",
       "description": ""
+    },
+    {
+      "name": "Electricity meter-points",
+      "description": "Retrieve a meter-point"
+    },
+    {
+      "name": "Consumption",
+      "description": "List consumptions"
+    },
+    {
+      "name": "Industry",
+      "description": "List grid supply points"
     }
   ],
   "paths": {
@@ -133,10 +145,595 @@
           }
         }
       }
+    },
+    "/products/{product_code}/electricity-tariffs/{tariff_code}/standing-charges/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}/electricity-tariffs/{tariff_code}/standard-unit-rates/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}/electricity-tariffs/{tariff_code}/day-unit-rates/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}/electricity-tariffs/{tariff_code}/night-unit-rates/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}/gas-tariffs/{tariff_code}/standing-charges/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_code}/gas-tariffs/{tariff_code}/standard-unit-rates/": {
+      "get": {
+        "tags": [
+          "Energy Products"
+        ],
+        "summary": "Return a list of unit rates and standing charges.",
+        "description": "Return a list of unit rates and standing charges.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ProductCode"
+          },
+          {
+            "$ref": "#/components/parameters/TariffCode"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodFrom"
+          },
+          {
+            "$ref": "#/components/parameters/PeriodTo"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/TariffCharges"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/electricity-meter-points/{mpan}/": {
+      "get": {
+        "tags": [
+          "Electricity meter-points"
+        ],
+        "summary": "Retrieve the details of a meter-point.",
+        "description": "This endpoint can be used to get the GSP of a given meter-point.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mpan",
+            "description": "The electricity meter-point’s MPAN.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "properties": {
+                    "gsp": {
+                      "type": "string",
+                      "example": "_H"
+                    },
+                    "mpan": {
+                      "type": "string",
+                      "example": "2000024512368"
+                    },
+                    "profile_class": {
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/electricity-meter-points/{mpan}/meters/{serial_number}/consumption/": {
+      "get": {
+        "tags": [
+          "Consumption"
+        ],
+        "summary": "Return a list of consumption values for half-hour periods for a given meter-point and meter.",
+        "description": "Return a list of consumption values for half-hour periods for a given meter-point and meter.\nElectricity meters: kWh\nSMETS1 Secure gas meters: kWh\nSMETS2 gas meters: m^3",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mpan",
+            "description": "The electricity meter-point’s MPAN.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "serial_number",
+            "description": "The electricity meter-point’s serial number.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "period_from",
+            "description": "Show consumption from the given datetime (inclusive). This parameter can be provided on its own.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "period_to",
+            "description": "Show consumption to the given datetime (exclusive). This parameter also requires providing the period_from parameter to create a range.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "description": "Page size of returned results. Default is 100, maximum is 25,000 to give a full year of half-hourly consumption details.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "Ordering of results returned. Default is that results are returned in reverse order from latest available figure. Valid values: * ‘period’, to give results ordered forward. * ‘-period’, (default), to give results ordered from most recent backwards.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "group_by",
+            "description": "Aggregates consumption over a specified time period. A day is considered to start and end at midnight in the server’s timezone. The default is that consumption is returned in half-hour periods. Accepted values are: * ‘hour’ * ‘day’ * ‘week’ * ‘month’ * ‘quarter’",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/Consumption"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gas-meter-points/{mprn}/meters/{serial_number}/consumption/": {
+      "get": {
+        "tags": [
+          "Consumption"
+        ],
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "summary": "Return a list of consumption values for half-hour periods for a given meter-point and meter.",
+        "description": "Return a list of consumption values for half-hour periods for a given meter-point and meter.\nElectricity meters: kWh\nSMETS1 Secure gas meters: kWh\nSMETS2 gas meters: m^3",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "mprn",
+            "description": "The gas meter-point’s M.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "serial_number",
+            "description": "The electricity meter-point’s serial number.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "period_from",
+            "description": "Show consumption from the given datetime (inclusive). This parameter can be provided on its own.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "period_to",
+            "description": "Show consumption to the given datetime (exclusive). This parameter also requires providing the period_from parameter to create a range.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "description": "Page size of returned results. Default is 100, maximum is 25,000 to give a full year of half-hourly consumption details.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "description": "Ordering of results returned. Default is that results are returned in reverse order from latest available figure. Valid values: * ‘period’, to give results ordered forward. * ‘-period’, (default), to give results ordered from most recent backwards.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "group_by",
+            "description": "Aggregates consumption over a specified time period. A day is considered to start and end at midnight in the server’s timezone. The default is that consumption is returned in half-hour periods. Accepted values are: * ‘hour’ * ‘day’ * ‘week’ * ‘month’ * ‘quarter’",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "$ref": "#/components/schemas/Consumption"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/industry/grid-supply-points/": {
+      "get": {
+        "tags": [
+          "Industry"
+        ],
+        "summary": "Return a list of GSP objects, optionally filtered by postcode:",
+        "description": "Return a list of GSP objects, optionally filtered by postcode:",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "postcode",
+            "description": "A postcode to filter on.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json;charset=UTF-8;": {
+                "schema": {
+                  "properties": {
+                    "gsp": {
+                      "type": "string",
+                      "example": "_H"
+                    },
+                    "mpan": {
+                      "type": "string",
+                      "example": "2000024512368"
+                    },
+                    "profile_class": {
+                      "type": "number",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "parameters": {
+      "ProductCode": {
+        "in": "path",
+        "name": "product_code",
+        "description": "The code of the product to be retrieved, for example VAR-17-01-11",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "TariffCode": {
+        "in": "path",
+        "name": "tariff_code",
+        "description": "The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PeriodFrom": {
+        "in": "query",
+        "name": "period_from",
+        "description": "Show charges active from the given datetime (inclusive). This parameter can be provided on its own.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PeriodTo": {
+        "in": "query",
+        "name": "period_to",
+        "description": "Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "PageSize": {
+        "in": "query",
+        "name": "page_size",
+        "description": "Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        }
+      }
+    },
     "schemas": {
+      "IndustryObject": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Industry": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Results in Response"
+          },
+          "next": {
+            "type": "string",
+            "description": "Paginated URL for next records"
+          },
+          "previous": {
+            "type": "string",
+            "description": "Paginated URL for previous records"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IndustryObject"
+            }
+          }
+        },
+        "required": [
+          "results",
+          "count",
+          "previous",
+          "next"
+        ]
+      },
       "Products": {
         "type": "object",
         "properties": {
@@ -343,6 +940,22 @@
             "description": "Tariff available at",
             "example": ""
           },
+          "sample_quotes": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotes"
+          },
+          "single_register_electricity_tariffs": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffs"
+          },
+          "dual_register_electricity_tariffs": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffs"
+          },
+          "single_register_gas_tariffs": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffs"
+          },
           "sample_consumption": {
             "type": "object",
             "$ref": "#/components/schemas/SampleConsumption"
@@ -395,6 +1008,472 @@
           "method",
           "rel"
         ]
+      },
+      "Consumption": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Results in Response"
+          },
+          "next": {
+            "type": "string",
+            "description": "Paginated URL for next records"
+          },
+          "previous": {
+            "type": "string",
+            "description": "Paginated URL for previous records"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsumptionObject"
+            }
+          }
+        },
+        "required": [
+          "results",
+          "count",
+          "previous",
+          "next"
+        ]
+      },
+      "ConsumptionObject": {
+        "type": "object",
+        "properties": {
+          "consumption": {
+            "type": "number"
+          },
+          "interval_start": {
+            "type": "string"
+          },
+          "interval_end": {
+            "type": "string"
+          }
+        }
+      },
+      "TariffChargesObject": {
+        "type": "object",
+        "properties": {
+          "value_exc_vat": {
+            "type": "number"
+          },
+          "value_inc_vat": {
+            "type": "number"
+          },
+          "valid_from": {
+            "type": "string"
+          },
+          "valid_to": {
+            "type": "string"
+          }
+        }
+      },
+      "TariffCharges": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Results in Response"
+          },
+          "next": {
+            "type": "string",
+            "description": "Paginated URL for next records"
+          },
+          "previous": {
+            "type": "string",
+            "description": "Paginated URL for previous records"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TariffChargesObject"
+            }
+          }
+        },
+        "required": [
+          "results",
+          "count",
+          "previous",
+          "next"
+        ]
+      },
+      "SingleRegisterElectricityTariffs": {
+        "type": "object",
+        "properties": {
+          "_A": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_B": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_C": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_D": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_E": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_F": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_G": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_H": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_I": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_J": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_K": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_L": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_M": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_N": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_O": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_P": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_Q": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_R": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_S": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_T": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_U": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_V": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_W": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_X": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_Y": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          },
+          "_Z": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsObject"
+          }
+        }
+      },
+      "SingleRegisterElectricityTariffsObject": {
+        "type": "object",
+        "properties": {
+          "direct_debit_monthly": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsDirectDebitObject"
+          },
+          "direct_debit_quarterly": {
+            "type": "object",
+            "$ref": "#/components/schemas/SingleRegisterElectricityTariffsDirectDebitObject"
+          }
+        }
+      },
+      "SingleRegisterElectricityTariffsDirectDebitObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "standard_unit_rate_exc_vat": {
+            "type": "number",
+            "description": "The keys standard_unit_rate_* are listed in p/kWh (pence per kilowatt hour)."
+          },
+          "standard_unit_rate_inc_vat": {
+            "type": "number",
+            "description": "The keys standard_unit_rate_* are listed in p/kWh (pence per kilowatt hour)."
+          },
+          "standing_charge_exc_vat": {
+            "type": "number",
+            "description": "The keys standing_charge_* are listed in p/day (pence per day)."
+          },
+          "standing_charge_inc_vat": {
+            "type": "number",
+            "description": "The keys standing_charge_* are listed in p/day (pence per day)."
+          },
+          "online_discount_exc_vat": {
+            "type": "number"
+          },
+          "online_discount_inc_vat": {
+            "type": "number"
+          },
+          "dual_fuel_discount_exc_vat": {
+            "type": "number"
+          },
+          "dual_fuel_discount_inc_vat": {
+            "type": "number"
+          },
+          "exit_fees_exc_vat": {
+            "type": "number"
+          },
+          "exit_fees_inc_vat": {
+            "type": "number"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductLinks"
+            }
+          }
+        }
+      },
+      "SampleQuotes": {
+        "type": "object",
+        "properties": {
+          "_A": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_B": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_C": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_D": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_E": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_F": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_G": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_H": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_I": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_J": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_K": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_L": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_M": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_N": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_O": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_P": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_Q": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_R": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_S": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_T": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_U": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_V": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_W": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_X": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_Y": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          },
+          "_Z": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesObject"
+          }
+        }
+      },
+      "SampleQuotesObject": {
+        "type": "object",
+        "properties": {
+          "direct_debit_monthly": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesRates"
+          },
+          "direct_debit_quarterly": {
+            "type": "object",
+            "required": false,
+            "$ref": "#/components/schemas/SampleQuotesRates"
+          }
+        }
+      },
+      "SampleQuotesRates": {
+        "type": "object",
+        "properties": {
+          "electricity_single_rate": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesAnnualCosts"
+          },
+          "electricity_dual_rate": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesAnnualCosts"
+          },
+          "dual_fuel_single_rate": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesAnnualCosts"
+          },
+          "dual_fuel_dual_rate": {
+            "type": "object",
+            "$ref": "#/components/schemas/SampleQuotesAnnualCosts"
+          }
+        }
+      },
+      "SampleQuotesAnnualCosts": {
+        "type": "object",
+        "properties": {
+          "annual_cost_inc_vat": {
+            "type": "integer",
+            "description": "The keys annual_cost_* are listed in p (pence)."
+          },
+          "annual_cost_exc_vat": {
+            "type": "integer",
+            "description": "The keys annual_cost_* are listed in p (pence)."
+          }
+        }
       },
       "SampleConsumption": {
         "type": "object",
