@@ -20,7 +20,9 @@ jobs:
         run: (cd package && npm run build)
       - name: Test
         run: npm run test-api-client
+      - id: get_version
+        uses: battila7/get-version-action@v2
       - name: Publish
-        run: (cd package && npm publish --access public)
+        run: (cd package && npm publish --tag ${{ steps.get_version.outputs.version-without-v }} --access public)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
