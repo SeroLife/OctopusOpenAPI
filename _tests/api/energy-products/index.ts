@@ -4,16 +4,16 @@ import { apiClient } from '../../client/api';
 import { ITestData } from '../../helpers/before';
 
 export function tests(test: SerialInterface<ITestData>): void {
-  test('EnergyProductsApi.getProducts | it should return a list of energy products', async t => {
-    const result = await apiClient.energyProductsApi.productsGet();
+  test('EnergyProductsApi.getEnergyProducts | it should return a list of energy products', async t => {
+    const result = await apiClient.energyProductsApi.getEnergyProducts();
 
     t.true(result.status === 200);
     t.true(result.data.results.length > 0);
     t.falsy(result.status !== 200);
   });
 
-  test('EnergyProductsApi.getProducts | it should return a list of energy products that are green', async t => {
-    const result = await apiClient.energyProductsApi.productsGet(undefined, true);
+  test('EnergyProductsApi.getEnergyProducts | it should return a list of energy products that are green', async t => {
+    const result = await apiClient.energyProductsApi.getEnergyProducts(undefined, true);
 
     const count = result.data.results.reduce((acc, cur) => {
       if (cur.is_green) {
@@ -27,8 +27,52 @@ export function tests(test: SerialInterface<ITestData>): void {
     t.falsy(result.status !== 200);
   });
 
+  test('EnergyProductsApi.getEnergyProducts | it should return a list of energy products that are prepay', async t => {
+    const result = await apiClient.energyProductsApi.getEnergyProducts(undefined, true);
+
+    const count = result.data.results.reduce((acc, cur) => {
+      if (cur.is_prepay) {
+        acc++;
+      }
+      return acc;
+    }, 0)
+
+    t.true(result.status === 200);
+    t.true(count > result.data.count - 1);
+    t.falsy(result.status !== 200);
+  });
+
+  test('EnergyProductsApi.getEnergyProducts | it should return a list of energy products that are business', async t => {
+    const result = await apiClient.energyProductsApi.getEnergyProducts(undefined, true);
+
+    const count = result.data.results.reduce((acc, cur) => {
+      if (cur.is_business) {
+        acc++;
+      }
+      return acc;
+    }, 0)
+
+    t.true(result.status === 200);
+    t.true(count > result.data.count - 1);
+    t.falsy(result.status !== 200);
+  });
+
   test('EnergyProductsApi.getAgileTariff | it should return the agile tariff', async t => {
-    const result = await apiClient.energyProductsApi.productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(AGILE_PRODUCT_CODE, generateTariffCode(AGILE_PRODUCT_CODE));
+    const result = await apiClient.energyProductsApi.getElectricityTariffsStandardUnitRates(AGILE_PRODUCT_CODE, generateTariffCode(AGILE_PRODUCT_CODE));
+
+    t.true(result.status === 200);
+    t.falsy(result.status !== 200);
+  });
+
+  test('EnergyProductsApi.getAgileTariff | it should return the agile tariff day tariff', async t => {
+    const result = await apiClient.energyProductsApi.getElectricityTariffsDayUnitRates(AGILE_PRODUCT_CODE, generateTariffCode(AGILE_PRODUCT_CODE));
+
+    t.true(result.status === 200);
+    t.falsy(result.status !== 200);
+  });
+
+  test('EnergyProductsApi.getAgileTariff | it should return the agile tariff night rates', async t => {
+    const result = await apiClient.energyProductsApi.getElectricityTariffsNightUnitRates(AGILE_PRODUCT_CODE, generateTariffCode(AGILE_PRODUCT_CODE));
 
     t.true(result.status === 200);
     t.falsy(result.status !== 200);

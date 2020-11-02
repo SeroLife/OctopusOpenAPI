@@ -1087,14 +1087,14 @@ export const ConsumptionApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        electricityMeterPointsMpanMetersSerialNumberConsumptionGet: async (mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options: any = {}): Promise<RequestArgs> => {
+        getElectricityMeterConsumption: async (mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'mpan' is not null or undefined
             if (mpan === null || mpan === undefined) {
-                throw new RequiredError('mpan','Required parameter mpan was null or undefined when calling electricityMeterPointsMpanMetersSerialNumberConsumptionGet.');
+                throw new RequiredError('mpan','Required parameter mpan was null or undefined when calling getElectricityMeterConsumption.');
             }
             // verify required parameter 'serialNumber' is not null or undefined
             if (serialNumber === null || serialNumber === undefined) {
-                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling electricityMeterPointsMpanMetersSerialNumberConsumptionGet.');
+                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling getElectricityMeterConsumption.');
             }
             const localVarPath = `/electricity-meter-points/{mpan}/meters/{serial_number}/consumption/`
                 .replace(`{${"mpan"}}`, encodeURIComponent(String(mpan)))
@@ -1154,14 +1154,14 @@ export const ConsumptionApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        gasMeterPointsMprnMetersSerialNumberConsumptionGet: async (mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options: any = {}): Promise<RequestArgs> => {
+        getGasMeterConsumption: async (mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'mprn' is not null or undefined
             if (mprn === null || mprn === undefined) {
-                throw new RequiredError('mprn','Required parameter mprn was null or undefined when calling gasMeterPointsMprnMetersSerialNumberConsumptionGet.');
+                throw new RequiredError('mprn','Required parameter mprn was null or undefined when calling getGasMeterConsumption.');
             }
             // verify required parameter 'serialNumber' is not null or undefined
             if (serialNumber === null || serialNumber === undefined) {
-                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling gasMeterPointsMprnMetersSerialNumberConsumptionGet.');
+                throw new RequiredError('serialNumber','Required parameter serialNumber was null or undefined when calling getGasMeterConsumption.');
             }
             const localVarPath = `/gas-meter-points/{mprn}/meters/{serial_number}/consumption/`
                 .replace(`{${"mprn"}}`, encodeURIComponent(String(mprn)))
@@ -1236,8 +1236,8 @@ export const ConsumptionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Consumption>> {
-            const localVarAxiosArgs = await ConsumptionApiAxiosParamCreator(configuration).electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options);
+        async getElectricityMeterConsumption(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Consumption>> {
+            const localVarAxiosArgs = await ConsumptionApiAxiosParamCreator(configuration).getElectricityMeterConsumption(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1256,8 +1256,8 @@ export const ConsumptionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Consumption>> {
-            const localVarAxiosArgs = await ConsumptionApiAxiosParamCreator(configuration).gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options);
+        async getGasMeterConsumption(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Consumption>> {
+            const localVarAxiosArgs = await ConsumptionApiAxiosParamCreator(configuration).getGasMeterConsumption(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1285,8 +1285,8 @@ export const ConsumptionApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption> {
-            return ConsumptionApiFp(configuration).electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(axios, basePath));
+        getElectricityMeterConsumption(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption> {
+            return ConsumptionApiFp(configuration).getElectricityMeterConsumption(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Return a list of consumption values for half-hour periods for a given meter-point and meter. Electricity meters: kWh SMETS1 Secure gas meters: kWh SMETS2 gas meters: m^3
@@ -1301,8 +1301,8 @@ export const ConsumptionApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption> {
-            return ConsumptionApiFp(configuration).gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(axios, basePath));
+        getGasMeterConsumption(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption> {
+            return ConsumptionApiFp(configuration).getGasMeterConsumption(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1327,7 +1327,7 @@ export interface ConsumptionApiInterface {
      * @throws {RequiredError}
      * @memberof ConsumptionApiInterface
      */
-    electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption>;
+    getElectricityMeterConsumption(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption>;
 
     /**
      * Return a list of consumption values for half-hour periods for a given meter-point and meter. Electricity meters: kWh SMETS1 Secure gas meters: kWh SMETS2 gas meters: m^3
@@ -1343,7 +1343,7 @@ export interface ConsumptionApiInterface {
      * @throws {RequiredError}
      * @memberof ConsumptionApiInterface
      */
-    gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption>;
+    getGasMeterConsumption(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any): AxiosPromise<Consumption>;
 
 }
 
@@ -1368,8 +1368,8 @@ export class ConsumptionApi extends BaseAPI implements ConsumptionApiInterface {
      * @throws {RequiredError}
      * @memberof ConsumptionApi
      */
-    public electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any) {
-        return ConsumptionApiFp(this.configuration).electricityMeterPointsMpanMetersSerialNumberConsumptionGet(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityMeterConsumption(mpan: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any) {
+        return ConsumptionApiFp(this.configuration).getElectricityMeterConsumption(mpan, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1386,8 +1386,8 @@ export class ConsumptionApi extends BaseAPI implements ConsumptionApiInterface {
      * @throws {RequiredError}
      * @memberof ConsumptionApi
      */
-    public gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any) {
-        return ConsumptionApiFp(this.configuration).gasMeterPointsMprnMetersSerialNumberConsumptionGet(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(this.axios, this.basePath));
+    public getGasMeterConsumption(mprn: string, serialNumber: string, periodFrom?: string, periodTo?: string, pageSize?: number, orderBy?: string, groupBy?: string, options?: any) {
+        return ConsumptionApiFp(this.configuration).getGasMeterConsumption(mprn, serialNumber, periodFrom, periodTo, pageSize, orderBy, groupBy, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -1406,10 +1406,10 @@ export const ElectricityMeterPointsApiAxiosParamCreator = function (configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        electricityMeterPointsMpanGet: async (mpan: string, options: any = {}): Promise<RequestArgs> => {
+        getElectricityMeterPoints: async (mpan: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'mpan' is not null or undefined
             if (mpan === null || mpan === undefined) {
-                throw new RequiredError('mpan','Required parameter mpan was null or undefined when calling electricityMeterPointsMpanGet.');
+                throw new RequiredError('mpan','Required parameter mpan was null or undefined when calling getElectricityMeterPoints.');
             }
             const localVarPath = `/electricity-meter-points/{mpan}/`
                 .replace(`{${"mpan"}}`, encodeURIComponent(String(mpan)));
@@ -1451,8 +1451,8 @@ export const ElectricityMeterPointsApiFp = function(configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async electricityMeterPointsMpanGet(mpan: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await ElectricityMeterPointsApiAxiosParamCreator(configuration).electricityMeterPointsMpanGet(mpan, options);
+        async getElectricityMeterPoints(mpan: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await ElectricityMeterPointsApiAxiosParamCreator(configuration).getElectricityMeterPoints(mpan, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1474,8 +1474,8 @@ export const ElectricityMeterPointsApiFactory = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        electricityMeterPointsMpanGet(mpan: string, options?: any): AxiosPromise<object> {
-            return ElectricityMeterPointsApiFp(configuration).electricityMeterPointsMpanGet(mpan, options).then((request) => request(axios, basePath));
+        getElectricityMeterPoints(mpan: string, options?: any): AxiosPromise<object> {
+            return ElectricityMeterPointsApiFp(configuration).getElectricityMeterPoints(mpan, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1494,7 +1494,7 @@ export interface ElectricityMeterPointsApiInterface {
      * @throws {RequiredError}
      * @memberof ElectricityMeterPointsApiInterface
      */
-    electricityMeterPointsMpanGet(mpan: string, options?: any): AxiosPromise<object>;
+    getElectricityMeterPoints(mpan: string, options?: any): AxiosPromise<object>;
 
 }
 
@@ -1513,8 +1513,8 @@ export class ElectricityMeterPointsApi extends BaseAPI implements ElectricityMet
      * @throws {RequiredError}
      * @memberof ElectricityMeterPointsApi
      */
-    public electricityMeterPointsMpanGet(mpan: string, options?: any) {
-        return ElectricityMeterPointsApiFp(this.configuration).electricityMeterPointsMpanGet(mpan, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityMeterPoints(mpan: string, options?: any) {
+        return ElectricityMeterPointsApiFp(this.configuration).getElectricityMeterPoints(mpan, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -1527,6 +1527,275 @@ export class ElectricityMeterPointsApi extends BaseAPI implements ElectricityMet
 export const EnergyProductsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsDayUnitRates: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getElectricityTariffsDayUnitRates.');
+            }
+            // verify required parameter 'tariffCode' is not null or undefined
+            if (tariffCode === null || tariffCode === undefined) {
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getElectricityTariffsDayUnitRates.');
+            }
+            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/day-unit-rates/`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
+                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (periodFrom !== undefined) {
+                localVarQueryParameter['period_from'] = periodFrom;
+            }
+
+            if (periodTo !== undefined) {
+                localVarQueryParameter['period_to'] = periodTo;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsNightUnitRates: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getElectricityTariffsNightUnitRates.');
+            }
+            // verify required parameter 'tariffCode' is not null or undefined
+            if (tariffCode === null || tariffCode === undefined) {
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getElectricityTariffsNightUnitRates.');
+            }
+            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/night-unit-rates/`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
+                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (periodFrom !== undefined) {
+                localVarQueryParameter['period_from'] = periodFrom;
+            }
+
+            if (periodTo !== undefined) {
+                localVarQueryParameter['period_to'] = periodTo;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsStandardCharges: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getElectricityTariffsStandardCharges.');
+            }
+            // verify required parameter 'tariffCode' is not null or undefined
+            if (tariffCode === null || tariffCode === undefined) {
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getElectricityTariffsStandardCharges.');
+            }
+            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/standing-charges/`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
+                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (periodFrom !== undefined) {
+                localVarQueryParameter['period_from'] = periodFrom;
+            }
+
+            if (periodTo !== undefined) {
+                localVarQueryParameter['period_to'] = periodTo;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsStandardUnitRates: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getElectricityTariffsStandardUnitRates.');
+            }
+            // verify required parameter 'tariffCode' is not null or undefined
+            if (tariffCode === null || tariffCode === undefined) {
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getElectricityTariffsStandardUnitRates.');
+            }
+            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/standard-unit-rates/`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
+                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (periodFrom !== undefined) {
+                localVarQueryParameter['period_from'] = periodFrom;
+            }
+
+            if (periodTo !== undefined) {
+                localVarQueryParameter['period_to'] = periodTo;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEnergyProductByCode: async (productCode: string, tariffsActiveAt?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'productCode' is not null or undefined
+            if (productCode === null || productCode === undefined) {
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getEnergyProductByCode.');
+            }
+            const localVarPath = `/products/{product_code}`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (tariffsActiveAt !== undefined) {
+                localVarQueryParameter['tariffs_active_at'] = tariffsActiveAt;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            localVarUrlObj.search = null;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
          * @summary Return a list of energy products.
          * @param {boolean} [isVariable] Show only variable products.
@@ -1537,7 +1806,7 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGet: async (isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options: any = {}): Promise<RequestArgs> => {
+        getEnergyProducts: async (isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/products`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -1592,299 +1861,14 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
+        getGasTariffsStandardCharges: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'productCode' is not null or undefined
             if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet.');
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getGasTariffsStandardCharges.');
             }
             // verify required parameter 'tariffCode' is not null or undefined
             if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet.');
-            }
-            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/day-unit-rates/`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
-                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (periodFrom !== undefined) {
-                localVarQueryParameter['period_from'] = periodFrom;
-            }
-
-            if (periodTo !== undefined) {
-                localVarQueryParameter['period_to'] = periodTo;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productCode' is not null or undefined
-            if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet.');
-            }
-            // verify required parameter 'tariffCode' is not null or undefined
-            if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet.');
-            }
-            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/night-unit-rates/`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
-                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (periodFrom !== undefined) {
-                localVarQueryParameter['period_from'] = periodFrom;
-            }
-
-            if (periodTo !== undefined) {
-                localVarQueryParameter['period_to'] = periodTo;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productCode' is not null or undefined
-            if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet.');
-            }
-            // verify required parameter 'tariffCode' is not null or undefined
-            if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet.');
-            }
-            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/standard-unit-rates/`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
-                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (periodFrom !== undefined) {
-                localVarQueryParameter['period_from'] = periodFrom;
-            }
-
-            if (periodTo !== undefined) {
-                localVarQueryParameter['period_to'] = periodTo;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeElectricityTariffsTariffCodeStandingChargesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productCode' is not null or undefined
-            if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeStandingChargesGet.');
-            }
-            // verify required parameter 'tariffCode' is not null or undefined
-            if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeElectricityTariffsTariffCodeStandingChargesGet.');
-            }
-            const localVarPath = `/products/{product_code}/electricity-tariffs/{tariff_code}/standing-charges/`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
-                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (periodFrom !== undefined) {
-                localVarQueryParameter['period_from'] = periodFrom;
-            }
-
-            if (periodTo !== undefined) {
-                localVarQueryParameter['period_to'] = periodTo;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productCode' is not null or undefined
-            if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet.');
-            }
-            // verify required parameter 'tariffCode' is not null or undefined
-            if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet.');
-            }
-            const localVarPath = `/products/{product_code}/gas-tariffs/{tariff_code}/standard-unit-rates/`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
-                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (periodFrom !== undefined) {
-                localVarQueryParameter['period_from'] = periodFrom;
-            }
-
-            if (periodTo !== undefined) {
-                localVarQueryParameter['period_to'] = periodTo;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
-
-
-    
-            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeGasTariffsTariffCodeStandingChargesGet: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'productCode' is not null or undefined
-            if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeGasTariffsTariffCodeStandingChargesGet.');
-            }
-            // verify required parameter 'tariffCode' is not null or undefined
-            if (tariffCode === null || tariffCode === undefined) {
-                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling productsProductCodeGasTariffsTariffCodeStandingChargesGet.');
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getGasTariffsStandardCharges.');
             }
             const localVarPath = `/products/{product_code}/gas-tariffs/{tariff_code}/standing-charges/`
                 .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
@@ -1924,20 +1908,28 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
-         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
          * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductCodeGet: async (productCode: string, tariffsActiveAt?: string, options: any = {}): Promise<RequestArgs> => {
+        getGasTariffsStandardUnitRates: async (productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'productCode' is not null or undefined
             if (productCode === null || productCode === undefined) {
-                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling productsProductCodeGet.');
+                throw new RequiredError('productCode','Required parameter productCode was null or undefined when calling getGasTariffsStandardUnitRates.');
             }
-            const localVarPath = `/products/{product_code}`
-                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)));
+            // verify required parameter 'tariffCode' is not null or undefined
+            if (tariffCode === null || tariffCode === undefined) {
+                throw new RequiredError('tariffCode','Required parameter tariffCode was null or undefined when calling getGasTariffsStandardUnitRates.');
+            }
+            const localVarPath = `/products/{product_code}/gas-tariffs/{tariff_code}/standard-unit-rates/`
+                .replace(`{${"product_code"}}`, encodeURIComponent(String(productCode)))
+                .replace(`{${"tariff_code"}}`, encodeURIComponent(String(tariffCode)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -1947,8 +1939,16 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (tariffsActiveAt !== undefined) {
-                localVarQueryParameter['tariffs_active_at'] = tariffsActiveAt;
+            if (periodFrom !== undefined) {
+                localVarQueryParameter['period_from'] = periodFrom;
+            }
+
+            if (periodTo !== undefined) {
+                localVarQueryParameter['period_to'] = periodTo;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
             }
 
 
@@ -1974,18 +1974,18 @@ export const EnergyProductsApiAxiosParamCreator = function (configuration?: Conf
 export const EnergyProductsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
-         * @summary Return a list of energy products.
-         * @param {boolean} [isVariable] Show only variable products.
-         * @param {boolean} [isGreen] Show only green products.
-         * @param {boolean} [isPrepay] Show only tracker products.
-         * @param {boolean} [isBusiness] Show only business products.
-         * @param {string} [availableAt] Show products available for new agreements on the given datetime. Defaults to current datetime, effectively showing products that are currently available.
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Products>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsGet(isVariable, isGreen, isPrepay, isBusiness, availableAt, options);
+        async getElectricityTariffsDayUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getElectricityTariffsDayUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2002,8 +2002,8 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
+        async getElectricityTariffsNightUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getElectricityTariffsNightUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2020,8 +2020,8 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
+        async getElectricityTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getElectricityTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2038,62 +2038,8 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
-            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
-                return axios.request(axiosRequestArgs);
-            };
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
+        async getElectricityTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getElectricityTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2107,8 +2053,62 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductWithTariffsObject>> {
-            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).productsProductCodeGet(productCode, tariffsActiveAt, options);
+        async getEnergyProductByCode(productCode: string, tariffsActiveAt?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductWithTariffsObject>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getEnergyProductByCode(productCode, tariffsActiveAt, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
+         * @summary Return a list of energy products.
+         * @param {boolean} [isVariable] Show only variable products.
+         * @param {boolean} [isGreen] Show only green products.
+         * @param {boolean} [isPrepay] Show only tracker products.
+         * @param {boolean} [isBusiness] Show only business products.
+         * @param {string} [availableAt] Show products available for new agreements on the given datetime. Defaults to current datetime, effectively showing products that are currently available.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEnergyProducts(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Products>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getEnergyProducts(isVariable, isGreen, isPrepay, isBusiness, availableAt, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getGasTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getGasTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getGasTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TariffCharges>> {
+            const localVarAxiosArgs = await EnergyProductsApiAxiosParamCreator(configuration).getGasTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2124,6 +2124,73 @@ export const EnergyProductsApiFp = function(configuration?: Configuration) {
 export const EnergyProductsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsDayUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getElectricityTariffsDayUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsNightUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getElectricityTariffsNightUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getElectricityTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Return a list of unit rates and standing charges.
+         * @summary Return a list of unit rates and standing charges.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getElectricityTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getElectricityTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEnergyProductByCode(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject> {
+            return EnergyProductsApiFp(configuration).getEnergyProductByCode(productCode, tariffsActiveAt, options).then((request) => request(axios, basePath));
+        },
+        /**
          * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
          * @summary Return a list of energy products.
          * @param {boolean} [isVariable] Show only variable products.
@@ -2134,8 +2201,8 @@ export const EnergyProductsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products> {
-            return EnergyProductsApiFp(configuration).productsGet(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(axios, basePath));
+        getEnergyProducts(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products> {
+            return EnergyProductsApiFp(configuration).getEnergyProducts(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(axios, basePath));
         },
         /**
          * Return a list of unit rates and standing charges.
@@ -2148,8 +2215,8 @@ export const EnergyProductsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
+        getGasTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getGasTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Return a list of unit rates and standing charges.
@@ -2162,75 +2229,8 @@ export const EnergyProductsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Return a list of unit rates and standing charges.
-         * @summary Return a list of unit rates and standing charges.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-         * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-         * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-         * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
-            return EnergyProductsApiFp(configuration).productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Retrieve the details of a product (including all its tariffs) for a particular point in time.
-         * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
-         * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-         * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject> {
-            return EnergyProductsApiFp(configuration).productsProductCodeGet(productCode, tariffsActiveAt, options).then((request) => request(axios, basePath));
+        getGasTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges> {
+            return EnergyProductsApiFp(configuration).getGasTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2242,6 +2242,73 @@ export const EnergyProductsApiFactory = function (configuration?: Configuration,
  */
 export interface EnergyProductsApiInterface {
     /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    getElectricityTariffsDayUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
+
+    /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    getElectricityTariffsNightUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
+
+    /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    getElectricityTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
+
+    /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    getElectricityTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
+
+    /**
+     * Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApiInterface
+     */
+    getEnergyProductByCode(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject>;
+
+    /**
      * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
      * @summary Return a list of energy products.
      * @param {boolean} [isVariable] Show only variable products.
@@ -2253,7 +2320,7 @@ export interface EnergyProductsApiInterface {
      * @throws {RequiredError}
      * @memberof EnergyProductsApiInterface
      */
-    productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products>;
+    getEnergyProducts(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any): AxiosPromise<Products>;
 
     /**
      * Return a list of unit rates and standing charges.
@@ -2267,7 +2334,7 @@ export interface EnergyProductsApiInterface {
      * @throws {RequiredError}
      * @memberof EnergyProductsApiInterface
      */
-    productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
+    getGasTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
 
     /**
      * Return a list of unit rates and standing charges.
@@ -2281,74 +2348,7 @@ export interface EnergyProductsApiInterface {
      * @throws {RequiredError}
      * @memberof EnergyProductsApiInterface
      */
-    productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApiInterface
-     */
-    productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApiInterface
-     */
-    productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApiInterface
-     */
-    productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApiInterface
-     */
-    productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
-
-    /**
-     * Retrieve the details of a product (including all its tariffs) for a particular point in time.
-     * @summary Retrieve the details of a product (including all its tariffs) for a particular point in time.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} [tariffsActiveAt] The point in time in which to show the active charges. Defaults to current datetime.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApiInterface
-     */
-    productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any): AxiosPromise<ProductWithTariffsObject>;
+    getGasTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any): AxiosPromise<TariffCharges>;
 
 }
 
@@ -2360,19 +2360,19 @@ export interface EnergyProductsApiInterface {
  */
 export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInterface {
     /**
-     * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
-     * @summary Return a list of energy products.
-     * @param {boolean} [isVariable] Show only variable products.
-     * @param {boolean} [isGreen] Show only green products.
-     * @param {boolean} [isPrepay] Show only tracker products.
-     * @param {boolean} [isBusiness] Show only business products.
-     * @param {string} [availableAt] Show products available for new agreements on the given datetime. Defaults to current datetime, effectively showing products that are currently available.
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EnergyProductsApi
      */
-    public productsGet(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsGet(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityTariffsDayUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getElectricityTariffsDayUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2387,8 +2387,8 @@ export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInter
      * @throws {RequiredError}
      * @memberof EnergyProductsApi
      */
-    public productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeElectricityTariffsTariffCodeDayUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityTariffsNightUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getElectricityTariffsNightUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2403,8 +2403,8 @@ export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInter
      * @throws {RequiredError}
      * @memberof EnergyProductsApi
      */
-    public productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeElectricityTariffsTariffCodeNightUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getElectricityTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2419,56 +2419,8 @@ export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInter
      * @throws {RequiredError}
      * @memberof EnergyProductsApi
      */
-    public productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeElectricityTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApi
-     */
-    public productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeElectricityTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApi
-     */
-    public productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeGasTariffsTariffCodeStandardUnitRatesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Return a list of unit rates and standing charges.
-     * @summary Return a list of unit rates and standing charges.
-     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
-     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
-     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
-     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
-     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EnergyProductsApi
-     */
-    public productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeGasTariffsTariffCodeStandingChargesGet(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
+    public getElectricityTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getElectricityTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2480,8 +2432,56 @@ export class EnergyProductsApi extends BaseAPI implements EnergyProductsApiInter
      * @throws {RequiredError}
      * @memberof EnergyProductsApi
      */
-    public productsProductCodeGet(productCode: string, tariffsActiveAt?: string, options?: any) {
-        return EnergyProductsApiFp(this.configuration).productsProductCodeGet(productCode, tariffsActiveAt, options).then((request) => request(this.axios, this.basePath));
+    public getEnergyProductByCode(productCode: string, tariffsActiveAt?: string, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getEnergyProductByCode(productCode, tariffsActiveAt, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
+     * @summary Return a list of energy products.
+     * @param {boolean} [isVariable] Show only variable products.
+     * @param {boolean} [isGreen] Show only green products.
+     * @param {boolean} [isPrepay] Show only tracker products.
+     * @param {boolean} [isBusiness] Show only business products.
+     * @param {string} [availableAt] Show products available for new agreements on the given datetime. Defaults to current datetime, effectively showing products that are currently available.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApi
+     */
+    public getEnergyProducts(isVariable?: boolean, isGreen?: boolean, isPrepay?: boolean, isBusiness?: boolean, availableAt?: string, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getEnergyProducts(isVariable, isGreen, isPrepay, isBusiness, availableAt, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApi
+     */
+    public getGasTariffsStandardCharges(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getGasTariffsStandardCharges(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Return a list of unit rates and standing charges.
+     * @summary Return a list of unit rates and standing charges.
+     * @param {string} productCode The code of the product to be retrieved, for example VAR-17-01-11
+     * @param {string} tariffCode The code of the tariff to be retrieved, for example E-1R-VAR-17-01-11-A.
+     * @param {string} [periodFrom] Show charges active from the given datetime (inclusive). This parameter can be provided on its own.
+     * @param {string} [periodTo] Show charges active up to the given datetime (exclusive). You must also provide the period_from parameter in order to create a range.
+     * @param {number} [pageSize] Page size of returned results. Default is 100, maximum is 1,500 to give up to a month of half-hourly prices.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnergyProductsApi
+     */
+    public getGasTariffsStandardUnitRates(productCode: string, tariffCode: string, periodFrom?: string, periodTo?: string, pageSize?: number, options?: any) {
+        return EnergyProductsApiFp(this.configuration).getGasTariffsStandardUnitRates(productCode, tariffCode, periodFrom, periodTo, pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
 }
@@ -2500,7 +2500,7 @@ export const IndustryApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        industryGridSupplyPointsGet: async (postcode?: string, options: any = {}): Promise<RequestArgs> => {
+        getGridSupplyPoints: async (postcode?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/industry/grid-supply-points/`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2544,8 +2544,8 @@ export const IndustryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async industryGridSupplyPointsGet(postcode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await IndustryApiAxiosParamCreator(configuration).industryGridSupplyPointsGet(postcode, options);
+        async getGridSupplyPoints(postcode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await IndustryApiAxiosParamCreator(configuration).getGridSupplyPoints(postcode, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -2567,8 +2567,8 @@ export const IndustryApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        industryGridSupplyPointsGet(postcode?: string, options?: any): AxiosPromise<object> {
-            return IndustryApiFp(configuration).industryGridSupplyPointsGet(postcode, options).then((request) => request(axios, basePath));
+        getGridSupplyPoints(postcode?: string, options?: any): AxiosPromise<object> {
+            return IndustryApiFp(configuration).getGridSupplyPoints(postcode, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2587,7 +2587,7 @@ export interface IndustryApiInterface {
      * @throws {RequiredError}
      * @memberof IndustryApiInterface
      */
-    industryGridSupplyPointsGet(postcode?: string, options?: any): AxiosPromise<object>;
+    getGridSupplyPoints(postcode?: string, options?: any): AxiosPromise<object>;
 
 }
 
@@ -2606,8 +2606,8 @@ export class IndustryApi extends BaseAPI implements IndustryApiInterface {
      * @throws {RequiredError}
      * @memberof IndustryApi
      */
-    public industryGridSupplyPointsGet(postcode?: string, options?: any) {
-        return IndustryApiFp(this.configuration).industryGridSupplyPointsGet(postcode, options).then((request) => request(this.axios, this.basePath));
+    public getGridSupplyPoints(postcode?: string, options?: any) {
+        return IndustryApiFp(this.configuration).getGridSupplyPoints(postcode, options).then((request) => request(this.axios, this.basePath));
     }
 
 }

@@ -2,6 +2,7 @@ import { serial, SerialInterface } from "ava";
 
 import * as EnergyProductsApi from './energy-products';
 import * as ConsumptionApi from './consumption';
+import * as IndustryApi from './industry';
 import { ITestData } from '../helpers/before';
 import { before } from '../helpers/beforeAll';
 
@@ -13,3 +14,4 @@ test.before(async t => {
 
 EnergyProductsApi.tests(test);
 ConsumptionApi.tests(test);
+IndustryApi.tests(test);

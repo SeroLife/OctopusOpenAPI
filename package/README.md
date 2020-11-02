@@ -12,7 +12,7 @@ Built using OpenAPIGenerator.
 
 ```typescript
 const apiClient = new OctopusApiClient();
-const result = await apiClient.energyProductsApi.productsGet();
+const result = await apiClient.energyProductsApi.getEnergyProducts();
 console.log(result.data.result);
 ```
 
@@ -25,7 +25,7 @@ Use the `generateAuthHeader` method supplied as part of the package.
 
 ```typescript
 const apiClient = new OctopusApiClient();
-await apiClient.consumptionApi.electricityMeterPointsMpanMetersSerialNumberConsumptionGet(
+await apiClient.consumptionApi.getElectricityMeterConsumption(
   process.env.OCTOPUS_MPAN || '',
   process.env.OCTOPUS_SERIAL_NUMBER || '',
   undefined,

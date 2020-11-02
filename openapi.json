@@ -44,6 +44,7 @@
         ],
         "summary": "Return a list of energy products.",
         "description": "By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.",
+        "operationId": "getEnergyProducts",
         "parameters": [
           {
             "in": "query",
@@ -112,6 +113,7 @@
         ],
         "summary": "Retrieve the details of a product (including all its tariffs) for a particular point in time.",
         "description": "Retrieve the details of a product (including all its tariffs) for a particular point in time.",
+        "operationId": "getEnergyProductByCode",
         "parameters": [
           {
             "in": "path",
@@ -153,6 +155,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getElectricityTariffsStandardCharges",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -191,6 +194,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getElectricityTariffsStandardUnitRates",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -229,6 +233,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getElectricityTariffsDayUnitRates",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -267,6 +272,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getElectricityTariffsNightUnitRates",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -305,6 +311,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getGasTariffsStandardCharges",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -343,6 +350,7 @@
         ],
         "summary": "Return a list of unit rates and standing charges.",
         "description": "Return a list of unit rates and standing charges.",
+        "operationId": "getGasTariffsStandardUnitRates",
         "parameters": [
           {
             "$ref": "#/components/parameters/ProductCode"
@@ -381,6 +389,7 @@
         ],
         "summary": "Retrieve the details of a meter-point.",
         "description": "This endpoint can be used to get the GSP of a given meter-point.",
+        "operationId": "getElectricityMeterPoints",
         "parameters": [
           {
             "in": "path",
@@ -426,6 +435,7 @@
         ],
         "summary": "Return a list of consumption values for half-hour periods for a given meter-point and meter.",
         "description": "Return a list of consumption values for half-hour periods for a given meter-point and meter.\nElectricity meters: kWh\nSMETS1 Secure gas meters: kWh\nSMETS2 gas meters: m^3",
+        "operationId": "getElectricityMeterConsumption",
         "parameters": [
           {
             "in": "path",
@@ -517,6 +527,7 @@
         ],
         "summary": "Return a list of consumption values for half-hour periods for a given meter-point and meter.",
         "description": "Return a list of consumption values for half-hour periods for a given meter-point and meter.\nElectricity meters: kWh\nSMETS1 Secure gas meters: kWh\nSMETS2 gas meters: m^3",
+        "operationId": "getGasMeterConsumption",
         "parameters": [
           {
             "in": "path",
@@ -603,6 +614,7 @@
         ],
         "summary": "Return a list of GSP objects, optionally filtered by postcode:",
         "description": "Return a list of GSP objects, optionally filtered by postcode:",
+        "operationId": "getGridSupplyPoints",
         "parameters": [
           {
             "in": "query",
