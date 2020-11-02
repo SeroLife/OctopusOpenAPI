@@ -23,6 +23,6 @@ jobs:
       - id: get_version
         uses: battila7/get-version-action@v2
       - name: Publish
-        run: (cd package && npm version ${{ steps.get_version.outputs.version-without-v }} && npm publish --tag ${{ steps.get_version.outputs.version-without-v }} --access public)
+        run: (cd package && npm version ${{ steps.get_version.outputs.version-without-v }} && npm publish --access public)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
