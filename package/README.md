@@ -6,7 +6,7 @@ Built using OpenAPIGenerator.
 
 ## Installing
 
-`npm i @sero-digital/octopus-energy-api``
+`npm i @sero-digital/octopus-energy-api`
 
 ## Usage
 
