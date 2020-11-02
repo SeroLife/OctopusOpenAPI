@@ -1,5 +1,5 @@
 {
-  "name": "@sero-digital/octopus-api-client",
+  "name": "@serodigital/octopus-api-client",
   "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
